@@ -21,6 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.prolaymm.compository.presentation.routes.CustomNavHost
+import com.prolaymm.compository.presentation.screens.login_page.LoginPage
+import com.prolaymm.compository.presentation.screens.welcome_page.WelcomeMainPage
 import com.prolaymm.compository.ui.theme.CompositoryTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,26 +36,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                  CustomNavHost()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CompositoryTheme {
-
     }
 }
 
