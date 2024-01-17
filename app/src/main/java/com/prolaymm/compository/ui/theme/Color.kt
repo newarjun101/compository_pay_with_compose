@@ -14,4 +14,7 @@ val Pink40 = Color(0xFF7D5260)
 val PrimaryColor = Color(0xff4D5DFA)
 val OnPrimaryColor = Color(0xFFD0D5FF)
 val HintColor = Color(0xFFA8A8A8)
+val LightHint = Color(0xFFEEEEEE)
+val LightCyan = Color(0xFFEDEFFF)
+val CategoryIconColor = Color(0xFF616161)
 val TransparentColor = Color.Transparent
