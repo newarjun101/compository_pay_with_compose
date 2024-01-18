@@ -1,5 +1,6 @@
 package com.prolaymm.compository.presentation.composables
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,9 +33,11 @@ import androidx.compose.ui.unit.sp
 import com.prolaymm.compository.domain.vos.NotificationVo
 import com.prolaymm.compository.ui.theme.CategoryIconColor
 import com.prolaymm.compository.ui.theme.HintColor
+import com.prolaymm.compository.ui.theme.PinkColor
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
-fun NotificationCard( modifier : Modifier = Modifier,notificationVo: NotificationVo,isButton:Boolean? = false,) {
+fun NotificationCard( modifier : Modifier = Modifier,notificationVo: NotificationVo,isButton:Boolean = false,) {
 
     Row(modifier = modifier
         .clip(RoundedCornerShape(12.dp))
@@ -70,7 +74,18 @@ fun NotificationCard( modifier : Modifier = Modifier,notificationVo: Notificatio
           Text(text = notificationVo.title, style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium, color = CategoryIconColor))
         if(notificationVo.code.isNotBlank())  Text(text = "Use Code ${notificationVo.code}", modifier = Modifier.padding(vertical = 2.dp), style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium, color = CategoryIconColor, fontSize = 14.sp))
           Text(text = notificationVo.subtitle, style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp, color = CategoryIconColor))
+          if(isButton)    CustomButton(text = "Collect Now",
+              shape = RoundedCornerShape(12.dp),
+              modifier = Modifier
+                  .padding(top = 8.dp)
+                  .width(90.dp).height(34.dp),
+              buttonColors = ButtonDefaults.buttonColors(
+                  containerColor = PinkColor.copy(alpha = 0.15f),
+                  contentColor = PinkColor
+              )
+          ) {
 
+          }
       }
     }
 }

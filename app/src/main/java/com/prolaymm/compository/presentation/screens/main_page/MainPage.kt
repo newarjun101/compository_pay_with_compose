@@ -55,8 +55,11 @@ import com.prolaymm.compository.presentation.routes.rComingSoon
 import com.prolaymm.compository.presentation.screens.balance_page.BalancePage
 import com.prolaymm.compository.presentation.screens.home_page.HomePage
 import com.prolaymm.compository.presentation.screens.offers_page.OfferPage
+import com.prolaymm.compository.presentation.screens.reward_page.RewardPage
 import com.prolaymm.compository.ui.theme.HintColor
 import com.prolaymm.compository.ui.theme.LightHint
+import com.prolaymm.compository.ui.theme.Pink40
+import com.prolaymm.compository.ui.theme.PinkColor
 import com.prolaymm.compository.ui.theme.PrimaryColor
 import com.prolaymm.compository.utils.kDefaultMarginWidth
 import com.prolaymm.compository.viewmodel.HomeViewModel
@@ -77,7 +80,7 @@ fun MainPage(navController: NavController) {
     val coroutineScope = rememberCoroutineScope()
 
 
-    var tabIndex by remember { mutableStateOf(2) }
+    var tabIndex by remember { mutableStateOf(3) }
 
     Scaffold(
 
@@ -140,7 +143,7 @@ fun MainPage(navController: NavController) {
                                     modifier = Modifier
                                         .size(10.dp)
                                         .clip(shape = CircleShape)
-                                        .background(PrimaryColor)
+                                        .background(if (tabIndex == tabs.size - 1) PinkColor else PrimaryColor)
                                         .align(Alignment.TopEnd)
 
 
@@ -163,7 +166,7 @@ fun MainPage(navController: NavController) {
                                 // clip modifier not working
                                 .padding(horizontal = 14.dp)
                                 .clip(RoundedCornerShape(30.dp))
-                                .background(color = PrimaryColor)
+                                .background(color = if (tabIndex == tabs.size - 1) PinkColor else PrimaryColor)
                         )
                     },
                     containerColor = Color.White,
@@ -181,7 +184,7 @@ fun MainPage(navController: NavController) {
                             )
                         },
                             selected = tabIndex == index,
-                            selectedContentColor = PrimaryColor,
+                            selectedContentColor =if(tabIndex == tabs.size-1) PinkColor else  PrimaryColor,
                             unselectedContentColor = HintColor,
                             interactionSource = object : MutableInteractionSource {
                                 override val interactions: Flow<Interaction> = emptyFlow()
@@ -214,7 +217,7 @@ fun MainPage(navController: NavController) {
                0 -> HomePage(homeViewModel = hiltViewModel<HomeViewModel>())
                1 -> BalancePage()
                2 ->  OfferPage()
-               3 -> Text(text = "Fourth page")
+               3 -> RewardPage()
            }
        }
 

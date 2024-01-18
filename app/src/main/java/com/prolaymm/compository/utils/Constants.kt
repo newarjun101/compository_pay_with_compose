@@ -188,35 +188,17 @@ object Constants {
         )
     val rewardList = listOf<NotificationVo>(
         NotificationVo(
-            title = "Mobile Recharge Offer",
-            subtitle = "",
-            image = R.drawable.a,
-            containerColor = Color(0xff)
+            title = "Flat 50 off On food Delivery",
+            subtitle = "On orders above 99 on Swaggy, Somato",
+            image = R.drawable.one,
+            containerColor = Color(0xffEDFFF9)
         ),
         NotificationVo(
-            title = "",
-            subtitle = "",
-            image = R.drawable.b,
-            containerColor = Color(0xff)
-        ),
-        NotificationVo(
-            title = "",
-            subtitle = "",
-            image = R.drawable.c,
-            containerColor = Color(0xff)
-        ),
-        NotificationVo(
-            title = "",
-            subtitle = "",
-            image = R.drawable.d,
-            containerColor = Color(0xff)
-        ),
-        NotificationVo(
-            title = "",
-            subtitle = "",
-            image = R.drawable.e,
-            containerColor = Color(0xff)
-        ),
+            title = "20% Cashback On Amason",
+            subtitle = "Up to Rs 150 Minimum Order 1000",
+            image = R.drawable.two,
+            containerColor = Color(0xffEDFFF9)
+        )
 
         )
 }
