@@ -79,8 +79,8 @@ fun BalancePage() {
                     .padding(kDefaultMarginWidth)
                     .fillMaxWidth()
             ) {
-                Icon(painter = painterResource(id = R.drawable.circular_back), tint = CategoryIconColor,contentDescription = "", modifier = Modifier.size(36.dp))
-                Icon(painter = painterResource(id = R.drawable.stock),contentDescription = "",tint = CategoryIconColor, modifier = Modifier.size(36.dp))
+                Icon(painter = painterResource(id = R.drawable.circular_back), tint = CategoryIconColor,contentDescription = "", modifier = Modifier.size(22.dp))
+                Icon(painter = painterResource(id = R.drawable.stock),contentDescription = "",tint = CategoryIconColor, modifier = Modifier.size(22.dp))
             }
             Column (
                 modifier = Modifier

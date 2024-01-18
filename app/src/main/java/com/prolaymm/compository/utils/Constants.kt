@@ -3,6 +3,7 @@ package com.prolaymm.compository.utils
 import androidx.compose.ui.graphics.Color
 import com.prolaymm.compository.R
 import com.prolaymm.compository.domain.vos.BankAccountVo
+import com.prolaymm.compository.domain.vos.NotificationVo
 import com.prolaymm.compository.presentation.ui_vos.UiCategoryVo
 import com.prolaymm.compository.ui.theme.LightCyan
 import com.prolaymm.compository.ui.theme.OnPrimaryColor
@@ -148,4 +149,74 @@ object Constants {
             textColor = Color(0xff4DA7FA)
         ),
     )
+
+    val offerList = listOf<NotificationVo>(
+        NotificationVo(
+            title = "Mobile Recharge Offer",
+            code = "FIRST20",
+            subtitle = "Get 20 % Instant cashback upto Rs 50 on your firs mobile recharge. T&C apply",
+            image = R.drawable.a,
+            containerColor = Color(0xffEDF6FF)
+        ),
+        NotificationVo(
+            title = "DTH Recharge Offer",
+            subtitle = "Get 20 % Instant cashback upto Rs 50 on your first DTH recharge. T&C apply",
+            code = "FIRSDTHT20",
+            image = R.drawable.b,
+            containerColor = Color(0xffFFEDED)
+        ),
+        NotificationVo(
+            title = "Flipcart Shopping Offer",
+            subtitle = "Shop on Flipcart using our payment system to get upto 50% cashback . T&C appply",
+            image = R.drawable.c,
+            containerColor = Color(0xffEDFFEF)
+        ),
+        NotificationVo(
+            title = "Money Transfer Offer",
+            subtitle = "Get a scratch card with assuerd casbck and coupons on Money Transfer of Rs 500 or more . T&C apply",
+            image = R.drawable.d,
+            containerColor = Color(0xffFFFFED)
+        ),
+        NotificationVo(
+            title = "Rs 50 Off on Flights",
+            subtitle = "Get instant discount on flat 50 Rs on Flight ticket booking. T&C apply",
+            code = "",
+            image = R.drawable.e,
+            containerColor = Color(0xffF2EDFF)
+        ),
+
+        )
+    val rewardList = listOf<NotificationVo>(
+        NotificationVo(
+            title = "Mobile Recharge Offer",
+            subtitle = "",
+            image = R.drawable.a,
+            containerColor = Color(0xff)
+        ),
+        NotificationVo(
+            title = "",
+            subtitle = "",
+            image = R.drawable.b,
+            containerColor = Color(0xff)
+        ),
+        NotificationVo(
+            title = "",
+            subtitle = "",
+            image = R.drawable.c,
+            containerColor = Color(0xff)
+        ),
+        NotificationVo(
+            title = "",
+            subtitle = "",
+            image = R.drawable.d,
+            containerColor = Color(0xff)
+        ),
+        NotificationVo(
+            title = "",
+            subtitle = "",
+            image = R.drawable.e,
+            containerColor = Color(0xff)
+        ),
+
+        )
 }

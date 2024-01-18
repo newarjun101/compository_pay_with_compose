@@ -54,6 +54,7 @@ import com.prolaymm.compository.presentation.composables.CustomSearchField
 import com.prolaymm.compository.presentation.routes.rComingSoon
 import com.prolaymm.compository.presentation.screens.balance_page.BalancePage
 import com.prolaymm.compository.presentation.screens.home_page.HomePage
+import com.prolaymm.compository.presentation.screens.offers_page.OfferPage
 import com.prolaymm.compository.ui.theme.HintColor
 import com.prolaymm.compository.ui.theme.LightHint
 import com.prolaymm.compository.ui.theme.PrimaryColor
@@ -76,7 +77,7 @@ fun MainPage(navController: NavController) {
     val coroutineScope = rememberCoroutineScope()
 
 
-    var tabIndex by remember { mutableStateOf(1) }
+    var tabIndex by remember { mutableStateOf(2) }
 
     Scaffold(
 
@@ -212,7 +213,7 @@ fun MainPage(navController: NavController) {
            when (tabIndex) {
                0 -> HomePage(homeViewModel = hiltViewModel<HomeViewModel>())
                1 -> BalancePage()
-               2 -> Text(text = "Third page")
+               2 ->  OfferPage()
                3 -> Text(text = "Fourth page")
            }
        }
