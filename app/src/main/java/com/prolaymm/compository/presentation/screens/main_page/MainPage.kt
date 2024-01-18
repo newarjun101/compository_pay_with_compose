@@ -215,9 +215,9 @@ fun MainPage(navController: NavController) {
            .fillMaxHeight()) {
            when (tabIndex) {
                0 -> HomePage(homeViewModel = hiltViewModel<HomeViewModel>())
-               1 -> BalancePage()
-               2 ->  OfferPage()
-               3 -> RewardPage()
+               1 -> BalancePage(navController)
+               2 ->  OfferPage(navController)
+               3 -> RewardPage(navController)
            }
        }
 

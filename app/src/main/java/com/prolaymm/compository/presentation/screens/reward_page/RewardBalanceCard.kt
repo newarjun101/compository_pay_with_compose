@@ -39,7 +39,7 @@ import com.prolaymm.compository.utils.Constants
 import com.prolaymm.compository.utils.kDefaultMarginWidth
 
 @Composable
-fun RewardBalanceCard() {
+fun RewardBalanceCard(onClick : ()->Unit) {
 
     Column {
 
@@ -79,7 +79,7 @@ fun RewardBalanceCard() {
                         contentColor = PinkColor
                     )
                 ) {
-
+                    onClick()
                 }
             }
         }

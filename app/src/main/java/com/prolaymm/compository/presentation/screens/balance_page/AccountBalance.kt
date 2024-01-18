@@ -37,6 +37,7 @@ fun AccountBalance(
 
     bankAccountVo: BankAccountVo,
     modifier: Modifier,
+    onClick : ()-> Unit
 ) {
     Column(modifier = modifier
         .clip(RoundedCornerShape(12.dp))
@@ -47,9 +48,7 @@ fun AccountBalance(
             indication = rememberRipple(
                 color = HintColor
             ),
-            onClick = {
-
-            }
+            onClick = onClick
         ),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally

@@ -92,4 +92,7 @@ dependencies {
 
     ///gson
     implementation ("com.google.code.gson:gson:2.10.1")
+
+    //qr
+    implementation("io.github.alexzhirkevich:qrose:1.0.0-beta3")
 }

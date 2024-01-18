@@ -7,19 +7,23 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.prolaymm.compository.presentation.composables.NotificationCard
+import com.prolaymm.compository.presentation.routes.rReceive
 import com.prolaymm.compository.utils.Constants
 import com.prolaymm.compository.utils.kDefaultMarginWidth
 
 @Composable
-fun OfferPage() {
+fun OfferPage(navController: NavController) {
 
     LazyColumn(
         modifier = Modifier.padding(horizontal = kDefaultMarginWidth)
     ){
         itemsIndexed(Constants.offerList) {
             position,vo ->
-            NotificationCard(notificationVo = vo, modifier = Modifier.padding(vertical = 12.dp))
+            NotificationCard(notificationVo = vo, modifier = Modifier.padding(vertical = 12.dp)){
+                navController.navigate(rReceive)
+            }
         }
     }
 
