@@ -25,7 +25,10 @@ import com.prolaymm.compository.presentation.routes.CustomNavHost
 import com.prolaymm.compository.presentation.screens.login_page.LoginPage
 import com.prolaymm.compository.presentation.screens.welcome_page.WelcomeMainPage
 import com.prolaymm.compository.ui.theme.CompositoryTheme
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

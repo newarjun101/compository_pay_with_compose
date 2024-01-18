@@ -9,10 +9,13 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
@@ -25,6 +28,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
@@ -43,15 +47,18 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.prolaymm.compository.presentation.composables.CustomNetworkImage
 import com.prolaymm.compository.presentation.composables.CustomSearchField
 import com.prolaymm.compository.presentation.routes.rComingSoon
+import com.prolaymm.compository.presentation.screens.balance_page.BalancePage
 import com.prolaymm.compository.presentation.screens.home_page.HomePage
 import com.prolaymm.compository.ui.theme.HintColor
 import com.prolaymm.compository.ui.theme.LightHint
 import com.prolaymm.compository.ui.theme.PrimaryColor
 import com.prolaymm.compository.utils.kDefaultMarginWidth
+import com.prolaymm.compository.viewmodel.HomeViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
@@ -69,11 +76,8 @@ fun MainPage(navController: NavController) {
     val coroutineScope = rememberCoroutineScope()
 
 
-    var tabIndex by remember { mutableStateOf(0) }
+    var tabIndex by remember { mutableStateOf(1) }
 
-    LaunchedEffect(key1 = pagerState.currentPage) {
-        tabIndex = pagerState.currentPage
-    }
     Scaffold(
 
         topBar = {
@@ -81,13 +85,14 @@ fun MainPage(navController: NavController) {
                 modifier = Modifier
                     .clip(shape = RoundedCornerShape(24.dp))
                     .background(Color.White)
-                    .padding(kDefaultMarginWidth)
+                    .padding(horizontal = kDefaultMarginWidth)
 
 
             ) {
                 TopAppBar(
                     colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color.White
+                        containerColor = Color.White,
+
                     ),
                     title = {
 
@@ -148,6 +153,18 @@ fun MainPage(navController: NavController) {
                     divider = {
                         Divider(color = Color.Transparent)
                     },
+
+                    indicator = { tabPositions ->
+                        Box(
+                            modifier = Modifier
+                                .tabIndicatorOffset(tabPositions[tabIndex])
+                                .height(4.dp)
+                                // clip modifier not working
+                                .padding(horizontal = 14.dp)
+                                .clip(RoundedCornerShape(30.dp))
+                                .background(color = PrimaryColor)
+                        )
+                    },
                     containerColor = Color.White,
                     selectedTabIndex = tabIndex
                 ) {
@@ -157,7 +174,7 @@ fun MainPage(navController: NavController) {
                             Text(
                                 title,
                                 style = TextStyle(
-                                    fontSize = 16.sp,
+                                    fontSize = 14.sp,
                                     fontWeight = FontWeight.Bold
                                 )
                             )
@@ -176,9 +193,6 @@ fun MainPage(navController: NavController) {
                             onClick = {
 
                                 tabIndex = index
-                                coroutineScope.launch {
-                                    pagerState.scrollToPage(index)
-                                }
                             }
                         )
                     }
@@ -190,12 +204,25 @@ fun MainPage(navController: NavController) {
 
             paddingValues ->
 
-        HorizontalPager(
+       Box(modifier = Modifier
+           .padding(
+               top = paddingValues.calculateTopPadding(),
+           )
+           .fillMaxHeight()) {
+           when (tabIndex) {
+               0 -> HomePage(homeViewModel = hiltViewModel<HomeViewModel>())
+               1 -> BalancePage()
+               2 -> Text(text = "Third page")
+               3 -> Text(text = "Fourth page")
+           }
+       }
+
+    /*    HorizontalPager(
             state = pagerState, modifier = Modifier
                 .padding(
                     top = paddingValues.calculateTopPadding(),
-                )
-                .fillMaxSize(),
+                ).fillMaxHeight()
+            ,
             verticalAlignment = Alignment.Top
 
         ) { page ->
@@ -206,6 +233,6 @@ fun MainPage(navController: NavController) {
                 2 -> Text(text = "Third page")
                 3 -> Text(text = "Fourth page")
             }
-        }
+        }*/
     }
 }
