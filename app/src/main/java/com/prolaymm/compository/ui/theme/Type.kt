@@ -14,12 +14,14 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,
+        color = Color(0xff22252B),
         letterSpacing = 0.5.sp
     ),
     headlineMedium = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 22.sp,
+        color = Color(0xff22252B),
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),
@@ -27,6 +29,7 @@ val Typography = Typography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 24.sp,
+        color = Color(0xff22252B),
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),
@@ -34,6 +37,7 @@ val Typography = Typography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Bold,
         fontSize = 18.sp,
+        color = Color(0xff22252B),
         lineHeight = 28.sp,
         letterSpacing = 0.sp
     ),

@@ -17,4 +17,5 @@ val HintColor = Color(0xFFA8A8A8)
 val LightHint = Color(0xFFEEEEEE)
 val LightCyan = Color(0xFFEDEFFF)
 val CategoryIconColor = Color(0xFF616161)
+val PinkColor = Color(0xFFFA4D96)
 val TransparentColor = Color.Transparent
