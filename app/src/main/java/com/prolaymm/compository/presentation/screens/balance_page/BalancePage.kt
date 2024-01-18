@@ -42,10 +42,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.size.Size
 import com.prolaymm.compository.R
 import com.prolaymm.compository.presentation.composables.CustomButton
 import com.prolaymm.compository.presentation.composables.SizedBox
+import com.prolaymm.compository.presentation.routes.rReceive
 import com.prolaymm.compository.ui.theme.CategoryIconColor
 import com.prolaymm.compository.ui.theme.LightCyan
 import com.prolaymm.compository.ui.theme.LightHint
@@ -55,7 +57,7 @@ import com.prolaymm.compository.utils.Constants
 import com.prolaymm.compository.utils.kDefaultMarginWidth
 
 @Composable
-fun BalancePage() {
+fun BalancePage(navController: NavController) {
 
 
     Column {
@@ -71,6 +73,7 @@ fun BalancePage() {
                 )
                 .background(Color.White)
                 .fillMaxWidth()
+
                // .height(200.dp),
         ) {
             Row(
@@ -100,7 +103,10 @@ fun BalancePage() {
 
                         position, vo ->
 
-                        AccountBalance(bankAccountVo = vo, modifier = Modifier.padding(start = 6.dp, end = 6.dp, top = 8.dp, bottom = 8.dp))
+                        AccountBalance(bankAccountVo = vo,
+                            modifier = Modifier.padding(start = 6.dp, end = 6.dp, top = 8.dp, bottom = 8.dp) ){
+                            navController.navigate(rReceive)
+                        }
 
                     }
                 }
@@ -116,6 +122,7 @@ fun BalancePage() {
                     )
                 ) {
 
+                    navController.navigate(rReceive)
                 }
             }
         }

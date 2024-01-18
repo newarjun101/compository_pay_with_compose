@@ -37,7 +37,7 @@ import com.prolaymm.compository.ui.theme.PinkColor
 
 @SuppressLint("SuspiciousIndentation")
 @Composable
-fun NotificationCard( modifier : Modifier = Modifier,notificationVo: NotificationVo,isButton:Boolean = false,) {
+fun NotificationCard( modifier : Modifier = Modifier,notificationVo: NotificationVo,isButton:Boolean = false,onClick: ()-> Unit) {
 
     Row(modifier = modifier
         .clip(RoundedCornerShape(12.dp))
