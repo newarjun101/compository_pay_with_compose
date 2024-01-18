@@ -43,7 +43,7 @@ fun ComposableWelcome(
         )
         Text(
             text = welcomeVo.title,
-            style = MaterialTheme.typography.titleLarge,
+            style = MaterialTheme.typography.headlineMedium,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(
                 top = 8.dp,

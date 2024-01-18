@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
+    primary = PrimaryColor,
     secondary = PurpleGrey80,
     tertiary = Pink80,
 
@@ -70,7 +70,8 @@ fun CompositoryTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = PrimaryColor.toArgb()
+
+            window.statusBarColor = OnPrimaryColor.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }

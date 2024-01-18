@@ -52,6 +52,9 @@ import androidx.navigation.NavController
 import com.prolaymm.compository.R
 import com.prolaymm.compository.presentation.composables.CustomButton
 import com.prolaymm.compository.presentation.composables.SizedBox
+import com.prolaymm.compository.presentation.routes.rLogin
+import com.prolaymm.compository.presentation.routes.rMainPage
+import com.prolaymm.compository.presentation.routes.rWelcome
 import com.prolaymm.compository.ui.theme.HintColor
 import com.prolaymm.compository.ui.theme.OnPrimaryColor
 import com.prolaymm.compository.ui.theme.PrimaryColor
@@ -162,6 +165,12 @@ fun LoginPage(navController: NavController) {
             ) {
                 if(inputText.length<6) {
                     Toast.makeText(context,"Please fill correctly",Toast.LENGTH_SHORT).show()
+                } else {
+                    navController.navigate(rMainPage){
+                        popUpTo(rLogin) {
+                            inclusive = true
+                        }
+                    }
                 }
             } ///custom button
             Text(

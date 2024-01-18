@@ -83,4 +83,13 @@ dependencies {
 
     //route
     implementation("androidx.navigation:navigation-compose:$nav_version")
+    //image catch
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("io.coil-kt:coil-gif:2.5.0")
+
+    ///lottie
+    implementation ("com.airbnb.android:lottie-compose:6.3.0")
+
+    ///gson
+    implementation ("com.google.code.gson:gson:2.10.1")
 }
