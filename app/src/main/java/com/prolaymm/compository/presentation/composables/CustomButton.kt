@@ -1,5 +1,6 @@
 package com.prolaymm.compository.presentation.composables
 
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
@@ -16,11 +17,13 @@ import com.prolaymm.compository.ui.theme.PrimaryColor
 
 @Composable
 fun CustomButton(
+    modifier: Modifier = Modifier,
     text: String,
     shape: Shape? =null,
-    modifier: Modifier = Modifier,
+
     style: TextStyle = TextStyle(),
     buttonColors: ButtonColors? = null,
+    content: (@Composable() () -> Unit)? = null,
     onClick: () -> Unit
 ) {
 
@@ -33,6 +36,6 @@ fun CustomButton(
         ),
         onClick = onClick
     ) {
-        Text(text = text, style = style)
+        if(content!= null) content() else  Text(text = text, style = style)
     }
 }

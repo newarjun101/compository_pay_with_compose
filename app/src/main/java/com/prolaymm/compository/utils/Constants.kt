@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.Color
 import com.prolaymm.compository.R
 import com.prolaymm.compository.domain.vos.BankAccountVo
 import com.prolaymm.compository.domain.vos.NotificationVo
+import com.prolaymm.compository.domain.vos.SettingVo
 import com.prolaymm.compository.presentation.ui_vos.UiCategoryVo
 import com.prolaymm.compository.ui.theme.LightCyan
 import com.prolaymm.compository.ui.theme.OnPrimaryColor
@@ -199,6 +200,20 @@ object Constants {
             image = R.drawable.two,
             containerColor = Color(0xffEDFFF9)
         )
+    )
 
-        )
+    val firstSetting = listOf<SettingVo>(
+
+        SettingVo(name = "All Transactions", image = R.drawable.bill),
+        SettingVo(name = "Pending Transactions", image = R.drawable.caution_sign),
+        SettingVo(name = "Refund status", image = R.drawable.clock),
+        SettingVo(name = "Raise an issue", image = R.drawable.caution),
+        SettingVo(name = "Help and Support", image = R.drawable.heart),
+    )
+
+    val secondSetting = listOf<SettingVo>(
+        SettingVo(name = "About Us", image = R.drawable.caution_sign),
+        SettingVo(name = "Terms and Conditions", image = R.drawable.caution),
+        SettingVo(name = "Feedback", image = R.drawable.heart),
+    )
 }
