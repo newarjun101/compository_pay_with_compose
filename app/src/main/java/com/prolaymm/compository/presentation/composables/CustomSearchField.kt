@@ -32,6 +32,7 @@ fun CustomSearchField(inputText : String,modifier : Modifier = Modifier,hintText
     TextField(value = inputText,
         shape = MaterialTheme.shapes.extraLarge,
         readOnly = readOnly,
+        enabled = false,
         keyboardOptions = KeyboardOptions(
             keyboardType = KeyboardType.Phone
         ),
@@ -58,6 +59,7 @@ fun CustomSearchField(inputText : String,modifier : Modifier = Modifier,hintText
         colors = TextFieldDefaults.colors(
             focusedContainerColor = HintColor.copy(alpha = 0.3f),
             focusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = TransparentColor,
             unfocusedContainerColor = HintColor.copy(alpha = 0.3f)
         ),

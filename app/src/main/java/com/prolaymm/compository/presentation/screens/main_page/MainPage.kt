@@ -35,6 +35,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -52,6 +53,7 @@ import androidx.navigation.NavController
 import com.prolaymm.compository.presentation.composables.CustomNetworkImage
 import com.prolaymm.compository.presentation.composables.CustomSearchField
 import com.prolaymm.compository.presentation.routes.rComingSoon
+import com.prolaymm.compository.presentation.routes.rProfile
 import com.prolaymm.compository.presentation.screens.balance_page.BalancePage
 import com.prolaymm.compository.presentation.screens.home_page.HomePage
 import com.prolaymm.compository.presentation.screens.offers_page.OfferPage
@@ -80,7 +82,7 @@ fun MainPage(navController: NavController) {
     val coroutineScope = rememberCoroutineScope()
 
 
-    var tabIndex by remember { mutableStateOf(3) }
+    var tabIndex by remember { mutableStateOf(0) }
 
     Scaffold(
 
@@ -109,17 +111,23 @@ fun MainPage(navController: NavController) {
                                 modifier = Modifier
                                     .clip(CircleShape)
                                     .size(50.dp)
+                                    .clickable {
+                                        navController.navigate(rProfile)
+                                    }
                             )
                             CustomSearchField(inputText = "",
                                 hintText = "Search here",
                                 readOnly = true,
                                 modifier = Modifier
                                     .height(46.dp)
+
+                                    .weight(1f)
+                                    .padding(horizontal = kDefaultMarginWidth)
                                     .clickable {
                                         navController.navigate(rComingSoon)
                                     }
-                                    .weight(1f)
-                                    .padding(horizontal = kDefaultMarginWidth))
+
+                            )
 
                             Box(
                                 modifier = Modifier
@@ -127,6 +135,9 @@ fun MainPage(navController: NavController) {
                                     .clip(shape = CircleShape)
                                     .background(LightHint)
                                     .padding(9.dp)
+                                    .clickable {
+                                        navController.navigate(rComingSoon)
+                                    }
 
 
                             ) {
@@ -155,7 +166,7 @@ fun MainPage(navController: NavController) {
 
                 TabRow(
                     divider = {
-                        Divider(color = Color.Transparent)
+                        Divider(color = Color.Transparent,)
                     },
 
                     indicator = { tabPositions ->
@@ -170,6 +181,7 @@ fun MainPage(navController: NavController) {
                         )
                     },
                     containerColor = Color.White,
+
                     selectedTabIndex = tabIndex
                 ) {
 
@@ -178,12 +190,13 @@ fun MainPage(navController: NavController) {
                             Text(
                                 title,
                                 style = TextStyle(
-                                    fontSize = 14.sp,
+                                    fontSize = 12.sp,
                                     fontWeight = FontWeight.Bold
                                 )
                             )
                         },
                             selected = tabIndex == index,
+
                             selectedContentColor =if(tabIndex == tabs.size-1) PinkColor else  PrimaryColor,
                             unselectedContentColor = HintColor,
                             interactionSource = object : MutableInteractionSource {

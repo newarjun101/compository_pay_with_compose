@@ -7,6 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.prolaymm.compository.presentation.screens.main_page.MainPage
 import com.prolaymm.compository.presentation.screens.coming_soon.ComingSoonPage
 import com.prolaymm.compository.presentation.screens.login_page.LoginPage
+import com.prolaymm.compository.presentation.screens.profile_page.ProfilePage
 import com.prolaymm.compository.presentation.screens.receive_page.ReceivePage
 import com.prolaymm.compository.presentation.screens.welcome_page.WelcomeMainPage
 
@@ -14,7 +15,7 @@ import com.prolaymm.compository.presentation.screens.welcome_page.WelcomeMainPag
 fun CustomNavHost() {
 
     val myNavController = rememberNavController()
-    NavHost(navController = myNavController, startDestination = rMainPage){
+    NavHost(navController = myNavController, startDestination = rWelcome){
 
         composable(rWelcome){
             WelcomeMainPage(navController = myNavController)
@@ -30,6 +31,9 @@ fun CustomNavHost() {
         }
         composable(rReceive){
             ReceivePage()
+        }
+        composable(rProfile){
+            ProfilePage()
         }
     }
 }
